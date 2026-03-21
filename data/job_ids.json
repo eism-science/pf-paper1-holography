@@ -1,0 +1,82 @@
+{
+  "_description": "IBM Quantum job IDs for all hardware experiments. All jobs run on IBM Fez (ibm_fez, 156-qubit Heron r2).",
+  "_backend": "ibm_fez",
+  "_shots_per_circuit": 8192,
+  "jobs": [
+    {
+      "job_id": "d6het7m48nic73amv3ag",
+      "code": "[[5,1,3]] HaPPY holographic",
+      "date": "2026-02-28",
+      "circuits": 32,
+      "description": "16 error patterns x 2 logical states, 4 syndrome + 5 data qubits",
+      "purpose": "Primary experiment: holographic code with perfect-tensor geometry. Tests whether DBCI's backward boundary reveals holographic structure (anisotropic DeltaH across stabilizer subsets, complementary recovery).",
+      "data_file": "data/happy_553.npz",
+      "notebook": "notebooks/dbci_553_holographic_hardware.ipynb"
+    },
+    {
+      "job_id": "d6hcqi648nic73amsl6g",
+      "code": "Surface d=3, L0",
+      "date": "2026-02-28",
+      "circuits": 1,
+      "description": "Logical |0>, 4 syndrome + 9 data qubits, 8000 shots",
+      "purpose": "Surface code scaling baseline. Used in DeltaH, erasure tolerance, overhead reduction, and threshold analyses.",
+      "notebook": "notebooks/dbci_hardware_surface_code.ipynb"
+    },
+    {
+      "job_id": "d6hcqiithhns7392039g",
+      "code": "Surface d=3, L1",
+      "date": "2026-02-28",
+      "circuits": 1,
+      "description": "Logical |1>, 4 syndrome + 9 data qubits, 8000 shots",
+      "purpose": "Surface code scaling baseline (logical |1> complement of d=3 L0).",
+      "notebook": "notebooks/dbci_hardware_surface_code.ipynb"
+    },
+    {
+      "job_id": "d6hcqk2thhns739203c0",
+      "code": "Surface d=5, L0",
+      "date": "2026-02-28",
+      "circuits": 1,
+      "description": "Logical |0>, 12 syndrome + 25 data qubits, 8000 shots",
+      "purpose": "Primary surface code distance for DBCI vs MWPM comparison (5.7x error reduction), erasure tolerance, and per-qubit importance analysis.",
+      "notebook": "notebooks/dbci_hardware_surface_code.ipynb"
+    },
+    {
+      "job_id": "d6hcqkm48nic73amsl90",
+      "code": "Surface d=5, L1",
+      "date": "2026-02-28",
+      "circuits": 1,
+      "description": "Logical |1>, 12 syndrome + 25 data qubits, 8000 shots",
+      "purpose": "Logical |1> complement of d=5 L0.",
+      "notebook": "notebooks/dbci_hardware_surface_code.ipynb"
+    },
+    {
+      "job_id": "d6iau6sgmsgc73btm2g0",
+      "code": "Surface d=7 (2-PUB: L0 + L1)",
+      "date": "2026-02-28",
+      "circuits": 2,
+      "description": "Both logical states in one job, 24 syndrome + 49 data qubits, 8000 shots each",
+      "purpose": "Largest surface code distance. Tests scaling to 49 qubits and cross-distance validation of DBCI advantage and erasure tolerance.",
+      "notebook": "notebooks/dbci_d7_surface_code_hardware.ipynb"
+    },
+    {
+      "job_id": "d6m0ol0fh9oc73enfa1g",
+      "code": "Steane [[7,1,3]]",
+      "date": "2026-03-07",
+      "circuits": 44,
+      "description": "22 error patterns x 2 logical states, 6 syndrome + 7 data qubits",
+      "purpose": "First non-holographic control (CSS/Hamming symmetry). Tests whether the isotropy gap is unique to holographic geometry. Result: CV ~0.2% (isotropic), confirming the gap.",
+      "data_file": "data/steane_713.npz",
+      "notebook": "notebooks/dbci_steane_713_hardware.ipynb"
+    },
+    {
+      "job_id": "d6mi6cs3pels73a0g0k0",
+      "code": "Shor [[9,1,3]]",
+      "date": "2026-03-08",
+      "circuits": 44,
+      "description": "22 error patterns x 2 logical states, 8 syndrome + 9 data qubits",
+      "purpose": "Second non-holographic control (concatenated, degenerate Z sector). Structurally independent from Steane. Result: CV ~3.0% (isotropic), strengthening attribution of anisotropy to holographic geometry.",
+      "data_file": "data/shor_913.npz",
+      "notebook": "notebooks/dbci_shor_913_hardware.ipynb"
+    }
+  ]
+}
