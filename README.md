@@ -1,29 +1,39 @@
-# Unequal Information as a Post-Selected Signature of Holographic Structure in Quantum Error-Correcting Codes
+# Hardware Evidence for Unequal Information Distribution in Holographic Quantum Codes
 
 Data and analysis notebooks for the paper:
 
-> Under Pauli noise models, the entropy reduction &Delta;H from incorporating a backward temporal boundary into quantum error correction is provably zero. On real quantum hardware, we measure &Delta;H > 1 bit on every code tested &mdash; revealing more than one bit per shot of decodable information invisible to all conventional syndrome-only decoders.
+> Under Pauli noise models, the entropy reduction &Delta;H from incorporating a backward temporal boundary into quantum error correction is provably zero. On real quantum hardware, we measure &Delta;H > 1 bit on every code tested, revealing structured entropy reduction from a calibration-based backward boundary whose spatial distribution distinguishes holographic from non-holographic codes.
 
 ## Repository structure
 
 ```
 data/
-  happy_553.npz          # [[5,1,3]] HaPPY code, IBM Fez, 32 circuits x 8192 shots
-  steane_713.npz         # Steane [[7,1,3]], IBM Fez, 44 circuits x 8192 shots
-  shor_913.npz           # Shor [[9,1,3]], IBM Fez, 44 circuits x 8192 shots
-  surface_d3_L{0,1}.npz  # Rotated surface code d=3 (supporting data)
-  surface_d5_L{0,1}.npz  # Rotated surface code d=5 (supporting data)
-  surface_d7_L{0,1}.npz  # Rotated surface code d=7 (supporting data)
-  weak_measurement_553.npz      # [[5,1,3]] weak measurement alpha sweep, IBM Fez, 5 jobs x 32 circuits x 8192 shots
-  strength_sweep_results.npz    # Computational beta sweep reference data (projective limit)
-  fanout_diagnostic_results.npz # Per-stabilizer fan-out diagnostics from beta sweep
+  happy_553.npz                   # [[5,1,3]] HaPPY code, IBM Fez, 32 circuits x 8192 shots
+  steane_713.npz                  # Steane [[7,1,3]], IBM Fez, 44 circuits x 8192 shots
+  shor_913.npz                    # Shor [[9,1,3]], IBM Fez, 44 circuits x 8192 shots
+  surface_d{3,5,7}_L{0,1}.npz    # Rotated surface codes (supporting data)
+  weak_measurement_553.npz        # [[5,1,3]] alpha sweep, IBM Fez
+  strength_sweep_results.npz      # Computational beta sweep reference
+  fanout_diagnostic_results.npz   # Per-stabilizer fan-out diagnostics
 
-notebooks/
-  isotropy_gap_analysis.ipynb            # Main analysis: DeltaH, isotropy CV, permutation tests, ablation
-  dbci_shor_913_hardware.ipynb           # Shor [[9,1,3]] as second non-holographic control
-  dbci_553_complementary_recovery.ipynb  # Complementary recovery threshold on [[5,1,3]]
-  dbci_depth2_happy_simulation.ipynb     # Depth-2 HaPPY [[20,1,d>=3]] simulation
-  dbci_weak_measurement_hardware.ipynb   # Physical weak measurement (alpha sweep) and alpha-beta duality
+notebooks/primary/                # Core experiments (one per main result)
+  dbci_553_holographic_hardware   # §3.1  DeltaH > 0 on HaPPY hardware
+  dbci_isotropy_reanalysis        # §3.2  Isotropy gap (37x HaPPY vs Steane)
+  dbci_553_complementary_recovery # §3.3  Four-boundary ablation (109x degradation)
+  dbci_weak_value_strength_sweep  # §3.4  Beta sweep, per-stabilizer curves, 42x peak
+  dbci_weak_measurement_hardware  # §3.6  Alpha-beta duality (spread ratio 1.000)
+
+notebooks/supporting/             # Controls, validations, and secondary analyses
+  dbci_steane_713_hardware        # Steane [[7,1,3]] non-holographic control
+  dbci_shor_913_hardware          # Shor [[9,1,3]] non-holographic control
+  dbci_readout_conditioned_delta_H # §3.5  Readout-conditioned null (controlled negative)
+  dbci_repeated_syndrome_happy    # §3.5  Repeated syndrome null (controlled negative)
+  dbci_cross_device_marrakech     # §4.1  Cross-device validation (Fez vs Marrakesh)
+  dbci_prior_free_isotropy        # §4.1  Forward-only isotropy (CV < 0.03%)
+  dbci_modular_weak_value_correlation # §4.3  Complement qubit mapping (rho = 1.000)
+  dbci_isotropy_weighting         # §4.3  DeltaH vs fidelity anti-correlation
+  dbci_delta_H_hardware           # §3.1  Cross-code DeltaH computation
+  dbci_depth2_happy_simulation    # Depth-2 HaPPY [[20,1,d>=3]] prediction
 ```
 
 ## Hardware
@@ -48,11 +58,9 @@ All experiments were run on IBM quantum processors via the Qiskit SDK and Sample
 The notebooks load raw data from `data/` and reproduce all figures and statistics reported in the paper. No QPU access is required.
 
 ```bash
-pip install numpy matplotlib qiskit
-jupyter notebook notebooks/isotropy_gap_analysis.ipynb
+pip install numpy scipy matplotlib qiskit
+jupyter notebook notebooks/primary/dbci_553_holographic_hardware.ipynb
 ```
-
-For notebooks that retrieve results from IBM Quantum (Shor, complementary recovery), set the `IBM_QUANTUM_TOKEN` environment variable or paste your token where indicated. All job IDs are included for data provenance; results can be reproduced from the saved `.npz` files without re-running hardware jobs.
 
 ## Citation
 
