@@ -1,4 +1,4 @@
-# Hardware Evidence for Unequal Information Distribution in Holographic Quantum Codes
+# Unequal Information Distribution in Holographic Quantum Codes
 
 Data and analysis notebooks for the paper:
 
@@ -64,10 +64,31 @@ jupyter notebook notebooks/primary/dbci_553_holographic_hardware.ipynb
 
 ## Citation
 
-Paper in preparation.
+Razo, L. and Cohen, E. (2026). *Unequal Information Distribution in Holographic Quantum Codes*. Zenodo. https://doi.org/10.5281/zenodo.20128742
+
+BibTeX:
+
+```bibtex
+@misc{RazoCohen2026holographic,
+  author    = {Razo, Luis and Cohen, Eliahu},
+  title     = {Unequal Information Distribution in Holographic Quantum Codes},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20128742},
+  url       = {https://doi.org/10.5281/zenodo.20128742}
+}
+```
+
+## Companion paper
+
+Razo, L. and Cohen, E. (2026). *Nonlocal Corrections from Dual Boundary Condition Inference in Quantum Error Correction*. Zenodo. https://doi.org/10.5281/zenodo.20128793
+
+Repository: https://github.com/eism-science/pf-letter2-nonlocality
 
 ## License
 
-Copyright 2026 EISM Science. All rights reserved.
+This work is licensed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-Data and code are provided for review and reproducibility. License terms will be specified upon publication.
+See the [LICENSE](LICENSE) file for full terms.
+
+Copyright © 2026 Luis Razo and Eliahu Cohen.
